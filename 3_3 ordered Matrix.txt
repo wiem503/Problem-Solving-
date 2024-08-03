@@ -1,0 +1,34 @@
+// Online C++ compiler to run C++ program online
+#include <iostream>
+using namespace std;
+void  FillMatrixArray(int arr[3][3],short Rows,short Cols){
+    int count =0;
+    for(short i=0;i<Rows;i++){
+        for(short j=0;j<Cols;j++){
+            count ++;
+            arr[i][j]=count;
+        }
+        
+    }
+}
+void PrintArrays(int arr[3][3],short Rows,short Cols ){
+    for(short i=0;i<Rows;i++){
+        for(short j=0;j<Cols;j++){
+          
+    cout <<arr[i][j]<<". ";
+        }
+        cout <<"\n";
+    }
+}
+int main() {
+    int arr[3][3];
+    FillMatrixArray(arr,3,3);
+    cout <<"afficher a Matrix Arrays "<<endl;
+   
+    PrintArrays(arr,3,3);
+    
+    // Write C++ code here
+    
+
+    return 0;
+}

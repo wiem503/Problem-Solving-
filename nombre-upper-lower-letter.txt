@@ -1,0 +1,51 @@
+#include <iostream>
+#include <string>
+using namespace std;
+
+// Lire une chaîne de caractères et la retourner
+string ReadString() {
+    string S1;
+    cout << "Entrez une chaîne de caractères : " << endl;
+    getline(cin, S1);
+    return S1;
+}
+
+// Calculer le nombre de caractères dans la chaîne
+int CalculStr(string S1) {
+    int Number = 0;
+    for (short  i = 0; i < S1.length(); ++i) {
+        if(S1[i]!=' '){
+        Number++;
+        }
+    }
+    return Number;
+}
+int CalculUpperLettre (string S1){
+    int Num=0;
+    for (short i=0;i<S1.length();i++){
+     if (isupper(S1[i]) && S1[i] != ' ')  {
+            Num++;
+        }
+    }
+    return Num;
+}
+int CalculLowerLettre(string S1){
+    int N=0;
+    for(short i=0;i<S1.length();i++){
+        if(islower(S1[i]) && S1[i] != ' '){
+            N++;
+        }
+    }
+    return N;
+}
+int main() {
+    string S1 = ReadString(); // Lire la chaîne de caractères
+    int count = CalculStr(S1); // Calculer le nombre de caractères
+    cout << "Le nombre de lettres : " << count << endl; // Afficher le résultat
+    int Q=CalculUpperLettre(S1);
+    cout <<"le nombre de caractères majuscule : "<<Q<<endl;
+    int L=CalculLowerLettre(S1);
+    cout <<"le nombre de caractères minscule : "<<L<<endl;
+
+    return 0;
+}

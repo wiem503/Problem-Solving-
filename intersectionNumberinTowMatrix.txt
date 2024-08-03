@@ -1,0 +1,73 @@
+#include <iostream>
+#include <iomanip>
+#include <cstdlib>
+#include <ctime>
+using namespace std;
+
+int RandomMatrix(int From, int To) {
+    int randNum = rand() % (To - From + 1) + From;
+    return randNum;
+}
+
+void FillNumberToMatrix(int arr[3][3], short Rows, short Cols) {
+    for (short i = 0; i < Rows; i++) {
+        for (short j = 0; j < Cols; j++) {
+            arr[i][j] = RandomMatrix(1, 10);
+        }
+    }
+}
+
+void PrintMatrix(int Matrix[3][3], short Rows, short Cols) {
+    for (short i = 0; i < Rows; i++) {
+        for (short j = 0; j < Cols; j++) {
+            cout << setw(3) << Matrix[i][j] << " ";
+        }
+        cout << "\n";
+    }
+}
+
+bool ExistNumberInMatrix(int Matrix[3][3], int Number, short Rows, short Cols) {
+    for (short i = 0; i < Rows; i++) {
+        for (short j = 0; j < Cols; j++) {
+            if (Matrix[i][j] == Number) {
+                return true;
+            }
+        }
+    }
+    return false;
+}
+
+void PrintRepeatedNumbers(int Matrix[3][3], int Matrix1[3][3], short Rows, short Cols) {
+    cout << "Les nombres répétés sont : ";
+    bool found = false;
+    for (short i = 0; i < Rows; i++) {
+        for (short j = 0; j < Cols; j++) {
+            int number = Matrix[i][j];
+            if (ExistNumberInMatrix(Matrix1, number, Rows, Cols)) {
+                cout << number << " ";
+                found = true;
+            }
+        }
+    }
+    if (!found) {
+        cout << "Aucun";
+    }
+    cout << endl;
+}
+
+int main() {
+    srand((unsigned)time(NULL));
+    int Matrix1[3][3] = {{9, 3, 5}, {6, 4, 0}, {2, 1, 3}};
+    int Matrix[3][3];
+
+    FillNumberToMatrix(Matrix, 3, 3);
+    cout << "Matrix :" << endl;
+    PrintMatrix(Matrix, 3, 3);
+    cout << "Matrix1 :" << endl;
+    PrintMatrix(Matrix1, 3, 3);
+
+    PrintRepeatedNumbers(Matrix, Matrix1, 3, 3);
+
+    // system("pause>0"); // Uncomment if running on Windows
+    return 0;
+}

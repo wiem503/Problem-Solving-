@@ -1,0 +1,40 @@
+// Online C++ compiler to run C++ program online
+#include <iostream>
+#include <string>
+using namespace std;
+string ReadString (){
+    string S1;
+    cout <<"entrer la chaîne de caractères :"<<endl;
+    getline(cin,S1);
+    return S1;
+    
+}
+short countWords(string S1){
+    string delim=" ";
+    short count=0;
+    short pos=0;
+    string Swords;
+    while ((pos=S1.find(delim))!=std :: string :: npos){
+        Swords=S1.substr(0,pos);
+    
+        if(Swords != ""){
+            count++;
+        }
+        S1.erase(0,pos+delim.length());
+    }
+    if(S1 != "")
+   {
+       count++;
+   }
+   return count;
+    
+}
+
+int main() {
+    // Write C++ code here
+    
+    string S1=ReadString();
+    cout<<"Count of string is: "<<countWords(S1)<<endl;
+
+    return 0;
+}

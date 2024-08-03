@@ -1,0 +1,46 @@
+#include <iostream>
+#include <cstdlib> // Ajout de la bibliothèque pour la fonction rand()
+using namespace std;
+
+int randomNum(int From, int To) {
+    int randNum = rand() % (To - From + 1) + From;
+    return randNum;
+}
+
+void FillArray(int arr[], int& arrlength) {
+    cout << "Entrez la longueur du tableau : ";
+    cin >> arrlength;
+    for (int i = 0; i < arrlength; i++) {
+        arr[i] = randomNum(1, 100); // Appel de la fonction randomNum pour remplir le tableau
+    }
+}
+
+int oddNum(int arr[], int arrlength) {
+    int count = 0; // Initialisation du compteur pour les nombres impairs
+    for (int i = 0; i < arrlength; i++) {
+        if (arr[i] % 2 != 0) {
+            count++; // Incrémentation du compteur si le nombre est impair
+        }
+    }
+    return count; // Retourne le nombre total de nombres impairs dans le tableau
+}
+
+void printArray(int arr[], int arrlength) {
+    cout << "Le tableau est : ";
+    for (int i = 0; i < arrlength; i++) {
+        cout << arr[i] << " ";
+    }
+    cout << endl;
+}
+
+int main() {
+    srand((unsigned)time (NULL));
+    cout << "Try programiz.pro" << endl;
+    int arr[100], arrlength;
+    FillArray(arr, arrlength);
+    printArray(arr, arrlength);
+    int oddCount = oddNum(arr, arrlength);
+    cout << "Le nombre total de nombres impairs dans le tableau est : " << oddCount << endl;
+
+    return 0;
+}

@@ -1,0 +1,60 @@
+#include <iostream>
+using namespace std;
+
+void FillNumber(int arr[100], int& arrlength) {
+    arrlength = 10;
+    arr[0] = 10;
+    arr[1] = 10;
+    arr[2] = 10;
+    arr[3] = 50;
+    arr[4] = 50;
+    arr[5] = 70;
+    arr[6] = 70;
+    arr[7] = 70;
+    arr[8] = 70;
+    arr[9] = 90;
+}
+
+void PrintArray(int arr[100], int arrlength) {
+    for(int i = 0; i < arrlength; i++)
+        cout << arr[i] << " ";
+    cout << endl;
+}
+
+int FindNumberInArray(int Number, int arr[100], int arrlength) {
+    for(int i = 0; i < arrlength; i++) {
+        if(arr[i] == Number) {
+            return 1;
+        }
+    }
+    return -1; // Cette instruction doit être en dehors de la boucle
+}
+
+bool IsArrayNumber(int Number, int arr[100], int arrlength) {
+    return FindNumberInArray(Number, arr, arrlength) != -1;
+}
+
+void AddArrayNumber(int Number, int arr[100], int& arrlength) {
+    arrlength++;
+    arr[arrlength - 1] = Number;
+}
+
+int CopyDistincNumber(int arr[100], int arrDest[100], int arrlength, int& arr2length) {
+    for(int i = 0; i < arrlength; i++) {
+        if(!IsArrayNumber(arr[i], arrDest, arr2length)) {
+            AddArrayNumber(arr[i], arrDest, arr2length);
+        }
+    }
+    return arr2length; // Ajouter un return pour s'assurer que la fonction retourne un int
+}
+
+int main() {
+    int arr[100], arrlength, arrDest[100], arr2length;
+    cout << "Try programiz.pro" << endl;
+    FillNumber(arr, arrlength);
+    PrintArray(arr, arrlength);
+    CopyDistincNumber(arr, arrDest, arrlength, arr2length); // Assigner la valeur retournée à arr2length
+    PrintArray(arrDest, arr2length);
+
+    return 0;
+}

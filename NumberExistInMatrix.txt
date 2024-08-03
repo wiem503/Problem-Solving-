@@ -1,0 +1,62 @@
+// Online C++ compiler to run C++ program online
+#include <iostream>
+#include <iomanip>
+using namespace std;
+int RandomMatrix(int From,int To){
+    int randNum=rand()%(To-From+1)+From;
+    return randNum;
+}
+void FillNumberToMatrix(int arr[3][3],short Rows,short  Cols){
+    for(short i=0;i<Rows;i++){
+        for(short j=0;j<Cols;j++){
+            arr[i][j]=RandomMatrix(1,100);
+        }
+    }
+}
+void PrintMatrix(int Matrix[3][3],short Rows,short Cols){
+    for(short i=0;i<Rows;i++){
+        for(short j=0;j<Cols;j++){
+            cout <<setw(3)<<Matrix[i][j]<<" ";
+        }
+        cout <<"\n";
+    }
+    
+    
+}
+int ExistNumber(int Matrix[3][3],int Number,short Rows,short Cols){
+    int count =0;
+    for(short i=0;i<Rows;i++){
+        for(short j=0;j<Cols;j++){
+            if(Matrix[i][j]==Number){
+                return true ;
+            }
+           
+        }
+    }
+   return false;
+}
+int main() {
+    // Write C++ code here
+srand((unsigned )time(NULL));
+int Matrix [3][3]={{99,30,50},{60,30,40},{2,6,30}};
+//int matrix[3][3],Number;
+int Number;
+
+
+//FillNumberToMatrix(Matrix,3,3);
+PrintMatrix(Matrix,3,3);
+cout <<"entrer le nombre recherche : "<<endl;
+cin>>Number;
+if(ExistNumber(Matrix,Number,3,3)){
+    cout <<"oui le nombre exist"<<endl;
+}
+else {
+    cout <<"Non le nombre n'existe pas"<<endl;
+    
+}
+
+
+    
+
+    system("pause>0");
+}

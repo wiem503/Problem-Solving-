@@ -1,0 +1,78 @@
+ #include<iostream>
+ #include<string>
+ #include<iomanip>
+ using namespace std; 
+ int RandomNumber(int From, int To) { //Function to generate a random number
+ int randNum = rand() % (To - From + 1) +From; 
+ return randNum; 
+     
+ } 
+ void FillMatrixWithRandomNumbers(int arr[3][3], short Rows, short Cols) { 
+     for (short i = 0; i < Rows; i++)    
+     {   
+         for (short j = 0; j < Cols; j++)   { 
+ arr[i][j] = RandomNumber(1, 100);  
+ }   
+ }   
+ } 
+ void FillMatrix2WithRandom(int arr1[3][3],short Rows,short Cols){
+     for (short i=0;i<Rows;i++){
+         for(short j=0;j<Cols;j++){
+        arr1[i][j]=RandomNumber(1,100);
+         }
+     }
+ }
+void PrintMatrix(int arr[3][3], short Rows, short Cols) { for (short i = 0; i < Rows; i++)      {   
+    for (short j = 0; j < Cols; j++)   {               
+        
+    cout << setw(3) << arr[i][j] << "     ";  
+        
+    }         
+    cout     <<     "\n";     
+    }     
+    
+} 
+
+int  SumOfMatrix(int arr[3][3], short Rows, short Cols) { 
+    int Sum=0;
+    for(short i=0;i<Rows;i++){
+    for (short j = 0; j < Cols; j++){
+        Sum+=arr[i][j];
+    }
+        
+    }
+    cout <<Sum<<endl;
+}
+bool  ComparisonToMatrix (int arr[3][3],int arr1[3][3],short Rows,short Cols){
+    return (SumOfMatrix(arr,3,3) == SumOfMatrix(arr1,3,3));
+      }
+        
+  int main() { 
+      //Seeds the random number generator in C++, called only once    
+      srand((unsigned)time(NULL)); int arr[3][3],arr1[3][3];
+      FillMatrixWithRandomNumbers(arr, 3, 3);      
+      cout     <<     "Matrix1:"<<endl;     
+      PrintMatrix(arr,     3,     3);        
+      cout     << "Sum Of Matrix : "<<" ";
+      
+      
+      SumOfMatrix(arr,3,3);   
+      FillMatrixWithRandomNumbers(arr1,3,3);
+      cout<<endl;
+      cout <<"Matrix 2 :"<<endl;
+      PrintMatrix(arr1,3,3);
+      cout <<"Sum of Matrix 2 : "<<" ";
+      SumOfMatrix(arr1,3,3);
+      cout <<endl;
+    if( ComparisonToMatrix(arr,arr1,3,3)){
+    cout <<endl;
+        cout <<"Matrix is not equals "<<endl;
+    }
+    
+    else {
+        cout <<"Matrix is equals "<<endl;
+    }
+    
+      system("pause>0"); 
+      
+  } 

@@ -1,0 +1,29 @@
+// Online C++ compiler to run C++ program online
+#include <iostream>
+#include<string>
+using namespace std;
+char ReadChar(){
+    char Ch1;
+    cout <<"entrer le caractère : "<<endl;
+    cin>>Ch1;
+    return Ch1;
+}
+bool isvowel(char Ch1 ){
+    Ch1=tolower(Ch1);
+    return ((Ch1 =='a' ) || (Ch1 == 'e') || (Ch1 == 'i') || (Ch1 =='o') || (Ch1 == 'u'));
+}
+
+int main() {
+    // Write C++ code here
+  char  Ch1= ReadChar();
+    if(isvowel(Ch1)){
+        cout <<" Yes is vowel "<<endl;
+    }
+        else {
+            cout <<"No ,is not vowel "<<endl;
+        }
+    
+   
+
+    return 0;
+}

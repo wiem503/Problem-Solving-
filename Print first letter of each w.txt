@@ -1,0 +1,29 @@
+//Print first letter of each word 
+// Online C++ compiler to run C++ program online
+#include <iostream>
+using namespace std;
+string ReadString (){
+    string S1;
+    cout <<" Please entrer your string "<<endl;
+    getline(cin ,S1);
+    return S1;
+}
+void PrintFirstLettre (string S1){
+    bool IsFirstLettre =true ;
+    cout<<"\n first letter of this string is : "<<endl;
+    for(short i=0;i<S1.length();i++){
+    if(S1[i]!= ' ' && IsFirstLettre){
+        cout <<S1[i]<<endl;
+    }
+    IsFirstLettre =(S1[i]== ' ' ? true: false );
+    
+}
+}
+
+int main() {
+    // Write C++ code here
+    PrintFirstLettre(ReadString());
+ 
+
+    return 0;
+}

@@ -1,0 +1,50 @@
+// Online C++ compiler to run C++ program online
+#include <iostream>
+using namespace std;
+int randomArray(int from,int To){
+    int randNum=rand()%(To-from+1)+from;
+    return randNum ;
+}
+void readArray(int arr[100],int& arrlength){
+    cout<<"entrer la longeur de tableau "<<" ";
+    cin >>arrlength;
+    for(int i=0;i<arrlength;i++){
+        arr[i]=randomArray(1,100);
+    }
+}
+void PrintArray (int arr[100],int arrlength){
+    for(int i=0;i<arrlength;i++){
+        cout <<arr[i]<<" ";
+        cout <<" ";
+    }
+}
+bool IsPalndirome(int arr[100],int arrlength){
+    for(int i=0;i<arrlength;i++){
+    if(arr[i] != arr[arrlength-i-1]){
+        return false;
+        
+    }
+}
+return true;
+}
+
+
+
+int main() {
+   int  arr[100],arrlength;
+    // Write C++ code here
+    
+    readArray(arr,arrlength);
+    PrintArray(arr,arrlength);
+    cout <<endl;
+   if( IsPalndirome(arr,arrlength) )
+       cout <<"yes is array Palindrome "<<endl;
+  
+       cout <<" is not palindrome"<<endl;
+
+
+    return 0;
+} 
+ 
+
+    

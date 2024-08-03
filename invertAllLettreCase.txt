@@ -1,0 +1,32 @@
+// Online C++ compiler to run C++ program online
+#include <iostream>
+#include <string>
+using namespace std;
+string  ReadChar(){
+    string  Ch;
+    cout <<"ecrire un chaîne de caractères : "<<endl;
+    cin>>Ch;
+    return Ch;
+    
+}
+char invertCaractere(char  Ch){
+    return isupper(Ch)? tolower(Ch) :toupper(Ch);
+}
+string invertString (string str){
+    for(char i=0;i<str.length();i++){
+        str[i]=invertCaractere(str[i]);
+        
+    }
+    return str;
+}
+
+int main() {
+    // Write C++ code here
+   string  Ch=ReadChar();
+    cout <<"ecrire after inverte :  "<<endl;
+   Ch= invertString(Ch);
+   cout<<Ch;
+    
+
+    return 0;
+}
